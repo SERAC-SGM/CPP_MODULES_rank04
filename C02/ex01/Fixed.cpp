@@ -62,5 +62,5 @@ int	Fixed::toInt() const
 
 float	Fixed::toFloat() const
 {
-	return this->_fixedPointValue / pow(2.0, (float)this->_fractionalBits);
+	return this->_fixedPointValue / roundf(pow(2.0, (float)this->_fractionalBits));
 }
