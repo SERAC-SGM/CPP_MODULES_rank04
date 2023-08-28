@@ -78,41 +78,44 @@ Fixed	Fixed::operator-(const Fixed &rhs)
 
 Fixed	Fixed::operator*(const Fixed &rhs)
 {
-	Fixed result;
-
-	result.setRawBits(this->toFloat() * rhs.toFloat());
+	Fixed result(this->toFloat() * rhs.toFloat());
 	return result;
 }
 
 Fixed	Fixed::operator/(const Fixed &rhs)
 {
-	Fixed result;
-
-	result.setRawBits(this->toFloat() / rhs.toFloat());
+	Fixed result(this->toFloat() / rhs.toFloat());
 	return result;
 }
 
 // increment operators
 
+//pre-increment
 Fixed	&Fixed::operator++()
 {
-	this->_fixedPointValue++;
-	return this;
+	++this->_fixedPointValue;
+	return *this;
 }
 
+Fixed	&Fixed::operator--()
+{
+	--this->_fixedPointValue;
+	return *this;
+}
+
+//post-increment
 Fixed	Fixed::operator++(int)
 {
-
+	Fixed old = *this;
+	++(*this);
+	return old;
 }
 
-Fixed	Fixed::operator--()
+Fixed	Fixed::operator--(int)
 {
-
-}
-
-Fixed	Fixed::&operator--(int)
-{
-
+	Fixed old = *this;
+	++(*this);
+	return old;
 }
 
 std::ostream &operator << (std::ostream &flux, const Fixed &fixed)
@@ -139,4 +142,32 @@ int	Fixed::toInt() const
 float	Fixed::toFloat() const
 {
 	return this->_fixedPointValue / roundf(pow(2, this->_fractionalBits));
+}
+
+Fixed	&Fixed::min(Fixed &lhs, Fixed &rhs)
+{
+	if (lhs < rhs)
+		return lhs;
+	return rhs;
+}
+
+Fixed	const &Fixed::min(const Fixed &lhs, const Fixed &rhs)
+{
+	if (lhs < rhs)
+		return rhs;
+	return rhs;
+}
+
+Fixed	&Fixed::max(Fixed &lhs, Fixed &rhs)
+{
+	if (lhs > rhs)
+		return lhs;
+	return rhs;
+}
+
+Fixed	const &Fixed::max(const Fixed &lhs, const Fixed &rhs)
+{
+	if (lhs > rhs)
+		return lhs;
+	return rhs;
 }

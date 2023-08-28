@@ -30,17 +30,21 @@ public:
 	Fixed	&operator--();
 	Fixed	operator--(int);
 
-	int		getRawBits(void) const;
-	void	setRawBits(const int &raw);
-	int		toInt() const;
-	float	toFloat() const;
+	int			getRawBits(void) const;
+	void		setRawBits(const int &raw);
+	int			toInt() const;
+	float		toFloat() const;
+
+	static Fixed 		&min(Fixed &lhs, Fixed &rhs);
+	static Fixed const	&min(const Fixed &lhs, const Fixed &rhs);
+	static Fixed 		&max(Fixed &lhs, Fixed &rhs);
+	static Fixed const	&max(const Fixed &lhs, const Fixed &rhs);
 
 private:
 
 	int					_fixedPointValue;
 	static const int	_fractionalBits = 8;
 };
-
 std::ostream &operator << (std::ostream &flux, const Fixed &fixed);
 
 #endif
