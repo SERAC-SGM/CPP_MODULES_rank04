@@ -19,7 +19,7 @@ public:
 	void	beRepaired(unsigned int amount);
 	void	errorStatus();
 
-private:
+protected:
 
 	std::string		_name;
 	unsigned int	_health;

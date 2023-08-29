@@ -1,9 +1,11 @@
 #include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
-	ClapTrap a("1");
-	ClapTrap b("2");
+	FragTrap a("1");
+	FragTrap b("2");
 
 	a.attack("target");
 	a.takeDamage(20);
@@ -11,7 +13,7 @@ int main()
 	{
 		a.attack("test");
 	}
-
+	a.highFivesGuys();
 	std::cout << std::endl;
 
 	b.takeDamage(9);
