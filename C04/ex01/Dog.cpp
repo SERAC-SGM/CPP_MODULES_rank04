@@ -1,20 +1,22 @@
 #include "Dog.hpp"
+#include "Brain.hpp"
 
 Dog::Dog()
 {
 	std::cout << "Dog constructor called" << std::endl;
 	this->_type = "Dog";
+	this->_brain = new Brain;
 }
 
 Dog::Dog(const Dog &toCopy)
 {
-	*this = toCopy;
+	this->_brain = toCopy._brain;
 }
 
 Dog::~Dog()
 {
 	std::cout << "Dog destructor called" << std::endl;
-
+	delete this->_brain;
 }
 
 Dog	&Dog::operator=(const Dog &rhs)

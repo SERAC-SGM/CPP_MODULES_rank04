@@ -63,8 +63,7 @@ DEPS += -I $(DEPS_DIR)
 HEADER +=	Animal.hpp\
 			Dog.hpp\
 			Cat.hpp\
-			WrongAnimal.hpp\
-			WrongCat.hpp
+			Brain.hpp
 
 vpath %.hpp $(DEPS_DIR)
 
@@ -84,8 +83,7 @@ SRCS +=	main.cpp\
 		Animal.cpp\
 		Dog.cpp\
 		Cat.cpp\
-		WrongAnimal.cpp\
-		WrongCat.cpp
+		Brain.cpp
 
 #______________________________________________________________________________#
 ############################### Attribution ####################################

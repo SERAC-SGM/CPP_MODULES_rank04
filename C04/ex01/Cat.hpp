@@ -2,6 +2,7 @@
 # define CAT_H
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat : public Animal
 {
@@ -15,6 +16,10 @@ public:
 
 	void	makeSound() const;
 	const std::string	&getType() const;
+
+	protected:
+
+	Brain*	_brain;
 
 };
 #endif
