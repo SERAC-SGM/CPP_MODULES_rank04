@@ -9,14 +9,11 @@ public:
 
 	Dog();
 	Dog(const Dog &toCopy);
-	~Dog();
+	virtual ~Dog();
 
 	Dog	&operator=(const Dog &rhs);
 
 	void	makeSound() const;
-	const std::string	&getType() const;
-
-protected:
 
 };
 #endif

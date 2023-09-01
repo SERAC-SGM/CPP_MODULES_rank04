@@ -1,4 +1,5 @@
 #include "Cat.hpp"
+#include "Animal.hpp"
 
 Cat::Cat()
 {
@@ -9,7 +10,9 @@ Cat::Cat()
 
 Cat::Cat(const Cat &toCopy)
 {
-	this->_brain = toCopy._brain;
+	std::cout << "Cat copy constructor called" << std::endl;
+	this->_brain = new Brain;
+	*this = toCopy;
 }
 
 Cat::~Cat()
@@ -20,10 +23,11 @@ Cat::~Cat()
 
 Cat	&Cat::operator=(const Cat &rhs)
 {
-	if (this != &rhs)
-	{
-		*this = rhs;
-	}
+	std::cout << "Cat assignation operator called" << std::endl;
+	if (this == &rhs)
+		return *this;
+	this->_type = rhs._type;
+	*this->_brain = *rhs._brain;
 	return *this;
 }
 
@@ -32,7 +36,13 @@ void	Cat::makeSound() const
 	std::cout << "miaou" << std::endl;
 }
 
-const std::string	&Cat::getType() const
+void	Cat::getIdeas() const
 {
-	return this->_type;
+	for(int i = 0; i < 100; i++)
+		std::cout << "Cat idea: " << this->_brain->getIdea(i) << "\taddress: " << this->_brain->getAddress(i) << std::endl;
+}
+
+void	Cat::setIdea(int index, std::string idea)
+{
+	this->_brain->setIdea(index, idea);
 }

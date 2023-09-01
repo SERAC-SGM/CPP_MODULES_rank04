@@ -10,11 +10,12 @@ public:
 
 	Brain();
 	Brain(const Brain &toCopy);
-	~Brain();
+	virtual ~Brain();
 
 	Brain	&operator=(const Brain &rhs);
 
 	const std::string	getIdea(int index) const;
+	const std::string	*getAddress(int index) const;
 	void				setIdea(int index, std::string idea);
 
 protected:

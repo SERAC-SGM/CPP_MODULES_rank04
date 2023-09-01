@@ -10,16 +10,17 @@ public:
 
 	Cat();
 	Cat(const Cat &toCopy);
-	~Cat();
+	virtual ~Cat();
 
 	Cat	&operator=(const Cat &rhs);
 
-	void	makeSound() const;
-	const std::string	&getType() const;
+	virtual void	makeSound() const;
+	void	getIdeas() const;
+	void	setIdea(int index, std::string idea);
 
 	protected:
 
-	Brain*	_brain;
+	Brain	*_brain;
 
 };
 #endif

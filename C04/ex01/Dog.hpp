@@ -10,12 +10,13 @@ public:
 
 	Dog();
 	Dog(const Dog &toCopy);
-	~Dog();
+	virtual ~Dog();
 
 	Dog	&operator=(const Dog &rhs);
 
-	void	makeSound() const;
-	const std::string	&getType() const;
+	virtual void	makeSound() const;
+	void	getIdeas() const;
+	void	setIdea(int index, std::string idea);
 
 protected:
 

@@ -9,12 +9,11 @@ public:
 
 	Cat();
 	Cat(const Cat &toCopy);
-	~Cat();
+	virtual ~Cat();
 
 	Cat	&operator=(const Cat &rhs);
 
 	void	makeSound() const;
-	const std::string	&getType() const;
 
 };
 #endif

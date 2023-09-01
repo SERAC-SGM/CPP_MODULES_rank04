@@ -1,6 +1,8 @@
 #include "Dog.hpp"
 #include "Cat.hpp"
 
+#include <cstdlib>
+
 int main()
 {
 	{
@@ -36,49 +38,46 @@ int main()
 	std::cout << std::endl;
 	{
 		std::cout << std::endl << std::endl;
-		std::cout << "#### showing that the copy constructor creates a deep copy ####" << std::endl;
+		std::cout << "DEEP COPY TEST" << std::endl;
 		std::cout << std::endl;
 
-		std::cout << "\033[34mConstructing\033[0m" << std::endl;
 		Dog *a = new Dog();
-		// Cat *a = new Cat();
-		if (a == NULL)
-		{
-			perror("Allocation failed");
-			std::cerr << "Exiting the process now." << std::endl;
-			exit(1);
-		}
+		// Cat *a = new Cat();	
+		// if (a == NULL)
+		// {
+		// 	std::cout << "Allocation failed" << std::endl;
+		// 	std::cerr << "Exiting the process now." << std::endl;
+		// 	std::exit(1);
+		// }
 
-		a->setIdea(0, "I have to sniff it");
-		a->setIdea(1, "I have to pee on it");
-		a->setIdea(2, "I have to sniff it again");
-		a->setIdea(101, "some shit");
+		a->setIdea(0, "idea1");
+		a->setIdea(1, "idea2");
+		a->setIdea(2, "idea3");
+		a->setIdea(99, "last idea");
+		a->setIdea(101, "out of range");
 
-		Dog *b = new Dog(*a);
-		// Cat *b = new Cat(*a);
-		if (b == NULL)
-		{
-			perror("Allocation failed");
-			std::cerr << "Exiting the process now." << std::endl;
-			exit(1);
-		}
+		// Dog *b = new Dog(*a);
+
+		Dog *b = new Dog;
+		*b = *a;
+
 		std::cout << std::endl;
 
-		std::cout << "\033[34mTesting a\033[0m" << std::endl;
+		std::cout << "Testing a" << std::endl;
 		std::cout << "The " << a->getType() << " a has the following ideas: " << std::endl;
 		a->getIdeas();
 		std::cout << std::endl;
 
-		std::cout << "\033[34mDeconstructing a\033[0m" << std::endl;
+		std::cout << "Destructing a"<< std::endl;
 		delete(a);
 		std::cout << std::endl;
 
-		std::cout << "\033[34mTesting b\033[0m" << std::endl;
+		std::cout << "Testing b" << std::endl;
 		std::cout << "The " << b->getType() << " b has the following ideas: " << std::endl;
 		b->getIdeas();
 		std::cout << std::endl;
 
-		std::cout << "\033[34mDeconstructing b\033[0m" << std::endl;
+		std::cout << "Destructing b" << std::endl;
 		delete(b);
 
 	}
