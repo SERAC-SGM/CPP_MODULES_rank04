@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Zombie.h"
 
-#define NUMBER 100
+#define NUMBER 10
 
 int main()
 {

@@ -29,7 +29,7 @@ int compare(std::string& symbol, std::ifstream& infile, std::ofstream& outfile)
 
 int main(int argc, char *argv[])
 {
-	if (argc != 4)
+	if (argc != 4 || argv[2] == 0)
 	{
 		std::cout << "Invalid arguments" << std::endl;
 		return 1;
