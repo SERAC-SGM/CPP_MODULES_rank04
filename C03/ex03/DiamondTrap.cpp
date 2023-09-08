@@ -19,7 +19,9 @@ DiamondTrap::DiamondTrap(const DiamondTrap &toCopy): ClapTrap(toCopy._name), Fra
 }
 
 DiamondTrap::~DiamondTrap()
-{}
+{
+	std::cout << "DiamondTrap " << this->_name << " destroyed" << std::endl;
+}
 
 DiamondTrap	&DiamondTrap::operator=(const DiamondTrap &rhs)
 {
