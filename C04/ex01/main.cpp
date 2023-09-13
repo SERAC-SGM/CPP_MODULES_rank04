@@ -42,13 +42,6 @@ int main()
 		std::cout << std::endl;
 
 		Dog *a = new Dog();
-		// Cat *a = new Cat();	
-		// if (a == NULL)
-		// {
-		// 	std::cout << "Allocation failed" << std::endl;
-		// 	std::cerr << "Exiting the process now." << std::endl;
-		// 	std::exit(1);
-		// }
 
 		a->setIdea(0, "idea1");
 		a->setIdea(1, "idea2");
@@ -56,10 +49,10 @@ int main()
 		a->setIdea(99, "last idea");
 		a->setIdea(101, "out of range");
 
-		// Dog *b = new Dog(*a);
+		Dog *b = new Dog(*a);
 
-		Dog *b = new Dog;
-		*b = *a;
+		// Dog *b = new Dog;
+		// *b = *a;
 
 		std::cout << std::endl;
 

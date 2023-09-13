@@ -1,12 +1,12 @@
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat()
+WrongCat::WrongCat(): WrongAnimal()
 {
 	std::cout << "WrongCat constructor called" << std::endl;
 	this->_type = "WrongCat";
 }
 
-WrongCat::WrongCat(const WrongCat &toCopy)
+WrongCat::WrongCat(const WrongCat &toCopy): WrongAnimal()
 {
 	*this = toCopy;
 }
