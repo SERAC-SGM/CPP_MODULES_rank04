@@ -7,6 +7,10 @@ int main()
 {
 	DiamondTrap a("1");
 	DiamondTrap b("2");
+	DiamondTrap x(a);
+
+	a.whoAmI();
+	x.whoAmI();
 
 	std::cout << std::endl;
 	a.attack("target");
